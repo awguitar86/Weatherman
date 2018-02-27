@@ -13,6 +13,27 @@ const SET_WEATHER = "SET_WEATHER";
 
 export default function weather( state = initialState, action ) {
   switch ( action.type ) {
+    case SET_WEATHER + "_PENDING":
+    return {
+      error: false,
+      loading: true,
+      search: false,
+      weather: {}
+    };
+    case SET_WEATHER + "_FULLFILLED":
+    return {
+      error: false,
+      loading: false,
+      search: false,
+      weather: action.payload
+    };
+    case SET_WEATHER + "_REJECTED":
+    return {
+      error: true,
+      loading: false,
+      search: false,
+      weather: {}
+    };
     case RESET: return initialState;
     default: return state;
   }
