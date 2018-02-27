@@ -19,7 +19,7 @@ export default function CurrentWeather( { weather, reset } ) {
 				<img
 					alt="sunny"
 					className="current-weather__icon"
-					src={ "" }
+					src={ icon }
 				/>
 				<h3 className="current-weather__temp">{ currentTemperature }°</h3>
 

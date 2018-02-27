@@ -21,7 +21,9 @@ class App extends Component {
 		}
 
 		if( loading ) {
-			<img src={ hourglass } alt="loading indicator" />
+			return(
+				<img src={ hourglass } alt="loading indicator" />
+			)
 		}
 
 		if( search ) {

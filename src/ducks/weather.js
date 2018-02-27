@@ -47,7 +47,7 @@ export function reset() {
 
 export function setWeather(location) {
     const url = buildURL( location );
-    const promise = axios.get( url ).then( res => formatWeatherData( res.data ) );
+    const promise = axios.get( url ).then( response => formatWeatherData( response.data ) );
     return {
         type: SET_WEATHER,
         payload: promise
