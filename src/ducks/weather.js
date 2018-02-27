@@ -20,15 +20,15 @@ export default function weather( state = initialState, action ) {
         search: false,
         weather: {}
       };
-      case SET_WEATHER + "_FULLFILLED":
-      console.log( action.payload );
+    case SET_WEATHER + "_FULFILLED":
+    console.log( action.payload )
       return {
         error: false,
         loading: false,
         search: false,
         weather: action.payload
       };
-      case SET_WEATHER + "_REJECTED":
+    case SET_WEATHER + "_REJECTED":
       return {
         error: true,
         loading: false,
@@ -45,11 +45,11 @@ export function reset() {
   return { type: RESET };
 }
 
-export function setWeather(location) {
-    const url = buildURL( location );
-    const promise = axios.get( url ).then( response => formatWeatherData( response.data ) );
-    return {
-        type: SET_WEATHER,
-        payload: promise
-    }
+export function setWeather( location ) {
+  var url = buildURL( location );
+  const promise = axios.get( url ).then( response => formatWeatherData( response.data ) );
+  return {
+    type: SET_WEATHER,
+    payload: promise
+  }
 }
