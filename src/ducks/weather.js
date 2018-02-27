@@ -1,4 +1,5 @@
 import { buildURL, formatWeatherData } from '../utils/weatherUtils';
+import Axios from 'axios';
 
 const initialState = {
   error: false,
@@ -8,6 +9,7 @@ const initialState = {
 };
 
 const RESET = "RESET";
+const SET_WEATHER = "SET_WEATHER";
 
 export default function weather( state = initialState, action ) {
   switch ( action.type ) {
@@ -18,4 +20,13 @@ export default function weather( state = initialState, action ) {
 
 export function reset() {
   return { type: RESET };
+}
+
+export function setWeather(location) {
+    const url = buildURL( location );
+    const promise = axios.get( url ).then( res => formatWeatherData( res.data ) );
+    return {
+        type: SET_WEATHER,
+        payload: promise
+    }
 }
