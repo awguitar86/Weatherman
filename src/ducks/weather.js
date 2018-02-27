@@ -21,6 +21,7 @@ export default function weather( state = initialState, action ) {
       weather: {}
     };
     case SET_WEATHER + "_FULLFILLED":
+    console.log( action.payload );
     return {
       error: false,
       loading: false,
